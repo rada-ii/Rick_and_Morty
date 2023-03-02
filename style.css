@@ -1,0 +1,108 @@
+body {
+  background-image: url('https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container {
+  max-width: 800px;
+  margin-top: 20px;
+}
+.card {
+  margin: 10px;
+  width: 300px;
+  height: 300px;
+  opacity: 0.9;
+}
+
+.card-body {
+  height: 130px;
+  overflow: auto;
+}
+
+.char-details {
+  margin: 20px;
+}
+.hidden {
+  display: none;
+}
+.fade {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.fade.show {
+  opacity: 1;
+}
+
+.pagination button {
+  background-color: #f1f1f1;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.pagination button.current-page {
+  background-color: #007bff;
+  color: white;
+}
+
+.card .card-body button.btn-primary:hover {
+  background-color: #023266;
+  border-color: #023266;
+}
+.pagination .btn-previous,
+.pagination .btn-next {
+  background-color: #2f699c;
+  color: white;
+}
+
+.pagination .btn-previous:hover,
+.pagination .btn-next:hover {
+  background-color: #023266;
+  border-color: #023266;
+}
+.btn1 {
+  display: none;
+  position: fixed;
+  bottom: 60px;
+  right: 10px;
+  z-index: 999;
+  background-color: #2f699c;
+  color: #fff;
+  border: none;
+  border-radius: 10%;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.btn2 {
+  display: none;
+  position: fixed;
+  top: 110px;
+  right: 10px;
+  z-index: 999;
+  background-color: #2f699c;
+  color: #fff;
+  border: none;
+  border-radius: 10%;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.btn1:hover,
+.btn2:hover {
+  background-color: #023266;
+}
+#pagination {
+  position: sticky;
+  top: 20;
+  z-index: 1000;
+  /* background-color: white; change this to match your page's background color */
+}
