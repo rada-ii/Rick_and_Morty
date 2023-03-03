@@ -5,6 +5,7 @@ const paginationContainer = document.getElementById("pagination");
 let currentPage = 1;
 let charactersPerPage = 20;
 let characters = [];
+let pageCount = 0;
 
 const renderError = function (msg) {
   const errorDiv = document.createElement("div");
@@ -78,7 +79,7 @@ const renderCharacters = function (charactersToRender) {
   });
 };
 
-const setupPagination = function (pageCount) {
+const setupPagination = function () {
   paginationContainer.innerHTML = "";
 
   let currentPageIndex = currentPage - 1;
@@ -103,8 +104,7 @@ const setupPagination = function (pageCount) {
   prevButton.disabled = currentPage === 1;
   prevButton.addEventListener("click", async function () {
     currentPage--;
-    const data = await getCharactersPerPage(currentPage);
-    setupPagination(data.info.pages);
+    await getCharactersPerPage(currentPage);
   });
   paginationContainer.appendChild(prevButton);
 
@@ -119,8 +119,7 @@ const setupPagination = function (pageCount) {
 
     button.addEventListener("click", async function () {
       currentPage = i + 1;
-      const data = await getCharactersPerPage(currentPage);
-      setupPagination(data.info.pages);
+      await getCharactersPerPage(currentPage);
     });
     paginationContainer.appendChild(button);
   }
@@ -131,8 +130,7 @@ const setupPagination = function (pageCount) {
   nextButton.disabled = currentPage === pageCount;
   nextButton.addEventListener("click", async function () {
     currentPage++;
-    const data = await getCharactersPerPage(currentPage);
-    setupPagination(data.info.pages);
+    await getCharactersPerPage(currentPage);
   });
   paginationContainer.appendChild(nextButton);
 };
@@ -155,7 +153,11 @@ async function getCharactersPerPage(page) {
     // console.log(data.info.pages);
 
     renderCharacters(data.results);
-    return data;
+    if (pageCount < 1) {
+      pageCount = data.info.pages;
+    }
+    setupPagination();
+    // return data;
   } catch (err) {
     console.error(`${err} 💥💥💥`);
     renderError(`Something went wrong 💥💥 ${err.message}. Try again!`);
@@ -163,14 +165,13 @@ async function getCharactersPerPage(page) {
 }
 
 async function showPage() {
-  let showData = await getCharactersPerPage(1);
-  setupPagination(showData.info.pages);
+  await getCharactersPerPage(1);
 }
 showPage();
 
 window.addEventListener("scroll", function () {
-  var scrollTopBtn = document.getElementById("scroll-to-top");
-  var scrollBottomBtn = document.getElementById("scroll-to-bottom");
+  let scrollTopBtn = document.getElementById("scroll-to-top");
+  let scrollBottomBtn = document.getElementById("scroll-to-bottom");
 
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     scrollTopBtn.style.display = "block";
