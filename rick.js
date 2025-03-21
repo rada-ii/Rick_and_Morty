@@ -1,6 +1,7 @@
 const characterCardsContainer = document.getElementById("character-cards");
 const characterDetailsContainer = document.getElementById("character-details");
 const paginationContainer = document.getElementById("pagination");
+const themeToggle = document.getElementById("theme-toggle");
 
 let currentPage = 1;
 let charactersPerPage = 20;
@@ -36,7 +37,6 @@ const renderCharacterDetails = function (character) {
     <p>Origin: ${character.origin.name}</p>
     <p>Location: ${character.location.name}</p>
     <div><button class="btn btn-primary mt-3 reload" onclick="location.reload()">Reload</button></div>
-   
   `;
   characterDetailsContainer.innerHTML = "";
   characterDetailsContainer.appendChild(detailsDiv);
@@ -83,7 +83,6 @@ const setupPagination = function () {
   paginationContainer.innerHTML = "";
 
   let currentPageIndex = currentPage - 1;
-
   let startPageIndex = currentPageIndex - 2;
   if (startPageIndex < 0) {
     startPageIndex = 0;
@@ -147,17 +146,13 @@ async function getCharactersPerPage(page) {
       throw new Error(`Problem with getting data ${response.status}`);
 
     const data = await response.json();
-    // console.log(data);
     allCharacters = allCharacters.concat(data.results);
-    // console.log(allCharacters);
-    // console.log(data.info.pages);
 
     renderCharacters(data.results);
     if (pageCount < 1) {
       pageCount = data.info.pages;
     }
     setupPagination();
-    // return data;
   } catch (err) {
     console.error(`${err} 💥💥💥`);
     renderError(`Something went wrong 💥💥 ${err.message}. Try again!`);
@@ -192,4 +187,16 @@ function scrollToTop() {
 
 function scrollToBottom() {
   window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+      themeToggle.innerHTML = "☀️ Light mode";
+    } else {
+      themeToggle.innerHTML = "🌙 Dark mode";
+    }
+  });
 }
