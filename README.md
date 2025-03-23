@@ -42,6 +42,6 @@ or use a local server (e.g. Live Server extension in VS Code).
 👉 View Demo:
 https://rada-ii.github.io/Rick_and_Morty/
 
+## 👩‍💻 Author
 
-#
-👩‍💻 Author: Rada II 
+Developed by [Rada Ivankovic](https://github.com/rada-ii) ✨ 
