@@ -34,7 +34,10 @@ git clone https://github.com/rada-ii/Rick_and_Morty.git
 or use a local server (e.g. Live Server extension in VS Code).
 ##
 
-📸 Live Demo
+📸 Live Demo:
+
+![App Screenshot](preview_rm.png)
+---
 
 👉 View Demo:
 https://rada-ii.github.io/Rick_and_Morty/
