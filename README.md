@@ -2,7 +2,7 @@
 
 ## 🧠 Project Description
 
-This application allows users to explore characters from the popular TV series **Rick and Morty**. It fetches data dynamically using the **Rick and Morty API** and offers a clean user experience with pagination and a dark/light theme toggle.
+Application that allows users to explore characters from the popular TV series **Rick and Morty**. It fetches data dynamically using the **Rick and Morty API** and offers a clean user experience with pagination and a dark/light theme toggle.
 
 ## 🔥 Features
 
