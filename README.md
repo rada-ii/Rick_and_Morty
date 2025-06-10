@@ -3,7 +3,12 @@
 ## 🧠 Project Description
 
 Application that allows users to explore characters from the popular TV series **Rick and Morty**. It fetches data dynamically using the **Rick and Morty API** and offers a clean user experience with pagination and a dark/light theme toggle.
+---
 
+👉 View Demo:
+https://rada-ii.github.io/Rick_and_Morty/
+
+---
 ## 🔥 Features
 
 - ✅ List of characters with details (name, image, status, origin, location…)
@@ -39,8 +44,6 @@ or use a local server (e.g. Live Server extension in VS Code).
 ![App Screenshot](preview_rm.png)
 ---
 
-👉 View Demo:
-https://rada-ii.github.io/Rick_and_Morty/
 
 ## 👩‍💻 Author
 
